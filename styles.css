@@ -1,0 +1,252 @@
+/* Custom CSS for enhanced styling and animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+
+    to {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation styles */
+.nav-link {
+    @apply text-text-secondary hover:text-accent-light transition-colors duration-300 relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-nav-link {
+    @apply text-2xl text-text-secondary hover:text-accent-light transition-colors duration-300;
+}
+
+/* Button styles */
+.btn-primary {
+    @apply bg-gradient-to-r from-gradient-start to-gradient-end text-white px-8 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-secondary {
+    @apply border-2 border-accent text-accent px-8 py-3 rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-105;
+}
+
+/* Section styles */
+.section-title {
+    @apply text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gradient-start to-gradient-end bg-clip-text text-transparent;
+}
+
+.section-subtitle {
+    @apply text-xl text-text-secondary max-w-2xl mx-auto;
+}
+
+/* Floating shapes animation */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-shapes::before,
+.floating-shapes::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-shapes::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: -2s;
+}
+
+.floating-shapes::after {
+    top: 60%;
+    right: 10%;
+    animation-delay: -4s;
+}
+
+/* Skill tag styles */
+.skill-tag {
+    @apply bg-accent/20 text-accent-light px-3 py-1 rounded-full text-sm font-medium border border-accent/30;
+}
+
+/* Stat card styles */
+.stat-card {
+    @apply bg-gradient-to-br from-accent/10 to-gradient-end/10 p-6 rounded-xl text-center backdrop-blur-sm border border-accent/20 hover:border-accent/40 transition-all duration-300 transform hover:scale-105;
+}
+
+/* Project card styles */
+.project-card {
+    @apply bg-gradient-to-br from-secondary/50 to-secondary/30 p-6 rounded-2xl backdrop-blur-sm border border-accent/20 hover:border-accent/40 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-accent/10;
+}
+
+.project-card img {
+    @apply w-full h-48 object-cover rounded-lg mb-4;
+}
+
+.project-card h3 {
+    @apply text-xl font-semibold mb-3 text-accent-light;
+}
+
+.project-card p {
+    @apply text-text-secondary mb-4 leading-relaxed;
+}
+
+.project-tech {
+    @apply inline-block bg-accent/20 text-accent text-xs px-2 py-1 rounded-full mr-2 mb-2;
+}
+
+.project-links {
+    @apply flex space-x-4 mt-4;
+}
+
+.project-link {
+    @apply text-accent hover:text-accent-light transition-colors duration-300 flex items-center space-x-1;
+}
+
+/* Skill card styles */
+.skill-card {
+    @apply bg-gradient-to-br from-secondary/50 to-secondary/30 p-6 rounded-2xl text-center backdrop-blur-sm border border-accent/20 hover:border-accent/40 transition-all duration-300 transform hover:scale-105 group;
+}
+
+.skill-icon {
+    @apply w-12 h-12 mx-auto mb-4 text-accent group-hover:text-accent-light transition-colors duration-300;
+}
+
+.skill-card h3 {
+    @apply text-lg font-semibold mb-2 text-accent-light;
+}
+
+.skill-card p {
+    @apply text-text-secondary text-sm;
+}
+
+/* Contact styles */
+.contact-item {
+    @apply flex items-center space-x-3 text-text-secondary;
+}
+
+.social-link {
+    @apply text-text-secondary hover:text-accent transition-colors duration-300 transform hover:scale-110;
+}
+
+.form-input {
+    @apply w-full px-4 py-3 bg-secondary/50 border border-accent/20 rounded-lg text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+    .section-title {
+        @apply text-3xl;
+    }
+
+    .floating-shapes::before,
+    .floating-shapes::after {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.nav-link:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.form-input:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Loading animation */
+.loading {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.loading.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
